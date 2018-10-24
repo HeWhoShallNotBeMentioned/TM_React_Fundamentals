@@ -4,6 +4,7 @@ const ReactRouter = require('react-router-dom');
 const Router = ReactRouter.BrowserRouter;
 const Route = ReactRouter.Route;
 const Switch = ReactRouter.Switch;
+const Link = require('react-router-dom').Link;
 const Nav = require('./Nav');
 const Home = require('./Home');
 const Battle = require('./Battle');
