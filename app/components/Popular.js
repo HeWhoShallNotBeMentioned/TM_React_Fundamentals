@@ -36,14 +36,14 @@ class Popular extends React.Component {
     };
     //makes sure that 'this' in update language is tied to the component
     //'this' down in return is a different function, not the componet
-    this.updateLanguage = this.updateLanguage.bind(this);
+    //this.updateLanguage = this.updateLanguage.bind(this);
   }
 
   componentDidMount() {
     this.updateLanguage(this.state.selectedLanguage);
   }
 
-  updateLanguage(lang) {
+  updateLanguage = lang => {
     this.setState(() => ({
       selectedLanguage: lang,
     }));
@@ -53,7 +53,7 @@ class Popular extends React.Component {
         repos: repos,
       }));
     });
-  }
+  };
 
   render() {
     const { selectedLanguage, repos } = this.state;
