@@ -1,5 +1,5 @@
-const React = require('react');
-const PropTypes = require('prop-types');
+import React from 'react';
+import PropTypes from 'prop-types';
 
 class PlayerInput extends React.Component {
   constructor(props) {
@@ -54,4 +54,4 @@ PlayerInput.propTypes = {
 PlayerInput.defaultProps = {
   label: 'Username',
 };
-module.exports = PlayerInput;
+export default PlayerInput;

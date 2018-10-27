@@ -1,6 +1,6 @@
-const React = require('react');
-const ReactDOM = require('react-dom');
-require('./index.css'); //this format works with style-loader in Babel
-const App = require('./components/App');
+import React from 'react';
+import ReactDOM from 'react-dom';
+import './index.css'; //this format works with style-loader in Babel
+import App from './components/App';
 
 ReactDOM.render(<App />, document.getElementById('app'));
