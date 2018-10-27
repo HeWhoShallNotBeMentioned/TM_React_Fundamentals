@@ -3,15 +3,15 @@ const PropTypes = require('prop-types');
 const api = require('../utils/api');
 const RepoGrid = require('./RepoGrid');
 
-function SelectLanguage(props) {
+function SelectLanguage({ selectedLanguage, onSelect }) {
   const languages = ['All', 'Javascript', 'Ruby', 'Java', 'CSS', 'Python'];
   return (
     <ul className="languages">
-      {languages.map(function(lang) {
+      {languages.map(lang => {
         return (
           <li
-            style={lang === props.selectedLanguage ? { color: 'red' } : null}
-            onClick={props.onSelect.bind(null, lang)}
+            style={lang === selectedLanguage ? { color: 'red' } : null}
+            onClick={() => onSelect(lang)}
             key={lang}
           >
             {lang}
@@ -44,32 +44,30 @@ class Popular extends React.Component {
   }
 
   updateLanguage(lang) {
-    this.setState(function() {
-      return {
-        selectedLanguage: lang,
-      };
-    });
+    this.setState(() => ({
+      selectedLanguage: lang,
+    }));
 
     api.fetchPopularRepos(this.state.selectedLanguage).then(repos => {
-      this.setState(() => {
-        return {
-          repos: repos,
-        };
-      });
+      this.setState(() => ({
+        repos: repos,
+      }));
     });
   }
 
   render() {
+    const { selectedLanguage, repos } = this.state;
+
     return (
       <div>
         <SelectLanguage
-          selectedLanguage={this.state.selectedLanguage}
+          selectedLanguage={selectedLanguage}
           onSelect={this.updateLanguage}
         />
-        {!this.state.repos ? (
+        {!repos ? (
           <img src="https://i.gifer.com/1amw.gif" />
         ) : (
-          <RepoGrid repos={this.state.repos} />
+          <RepoGrid repos={repos} />
         )}
       </div>
     );
