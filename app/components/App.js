@@ -22,11 +22,9 @@ class App extends React.Component {
             <Route path="/battle/results" component={Results} />
             <Route path="/popular" component={Popular} />
             <Route
-              render={function() {
-                return (
-                  <img src="https://s3-ap-southeast-1.amazonaws.com/assets-production.feastbump.com/static/images/Error/404/404-1250px.gif" />
-                );
-              }}
+              render={() => (
+                <img src="https://s3-ap-southeast-1.amazonaws.com/assets-production.feastbump.com/static/images/Error/404/404-1250px.gif" />
+              )}
             />
           </Switch>
         </div>
